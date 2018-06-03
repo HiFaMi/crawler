@@ -1,6 +1,6 @@
 import re
 
-with open('weekday.html', 'rt') as f:
+with open('data/weekday.html', 'rt') as f:
     html = f.read()
 
 #print(html)
