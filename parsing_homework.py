@@ -136,7 +136,7 @@ class Webtoon:
                     with open('data/{}-{}.html'.format(self.webtoon_id, page), 'wt') as f:
                         f.write(first_toon_url.text)
                     break
-
+        page = 1
         while True:
             if os.path.exists('data/{}-{}.html'.format(self.webtoon_id, page)):
                 with open('data/{}-{}.html'.format(self.webtoon_id, page), 'rt') as f:
