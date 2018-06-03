@@ -259,7 +259,7 @@ if __name__ == '__main__':
                     toon.title,
                     toon.author,
                     toon.description,
-                    re.findall(r'(^.*?)화', toon.episode_list[0].title)[0]))
+                    toon.episode_list[0].no))
             elif user_number_select == '2':
                 for number in range(len(toon.episode_list), 0, -1):
                     download = toon.episode_list[number-1]
