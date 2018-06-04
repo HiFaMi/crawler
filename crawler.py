@@ -81,6 +81,9 @@ class Episode:
         with open(file_path, 'wb') as f:
             f.write(response.content)
 
+        with open('data/{}/{}.html'.format(self.webtoon_id, self.no), 'a') as f:
+            f.write('<img src = {}/{}>'.format(self.no, file_name))
+
 
 class Webtoon:
 
