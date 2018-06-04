@@ -1,6 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+from bs4.element import Tag
 import re
 
 
@@ -52,8 +53,13 @@ class Episode:
 
     def download_all_images(self):
         # download method를 이용하여 get_image_url_list method에 반환값 즉, src의 값을 url에 넣고 실행
+
         for url in self.get_image_url_list():
             self.download(url)
+
+        soup = BeautifulSoup('data/{}/{}.html'.format(self.webtoon_id, self.no), 'lxml')
+        tag1 = Tag(name="html")
+        soup.insert(0, tag1)
 
     def download(self, url_img):
         # Referer: 이전 페이지 URL(어떤 페이지를 거쳐서 왔는가?)
@@ -80,6 +86,9 @@ class Episode:
         # wb는 이진파일 쓰기 전용
         with open(file_path, 'wb') as f:
             f.write(response.content)
+
+        with open('data/{}/{}.html'.format(self.webtoon_id, self.no), 'a') as f:
+            f.write('<img src = {}/{}>'.format(self.no, file_name))
 
 
 class Webtoon:
