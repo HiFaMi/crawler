@@ -62,7 +62,7 @@ class Episode:
         soup.insert(0, tag1)
 
     def download(self, url_img):
-        # Referer: 이전 페이지 URL(어떤 페이지를 거쳐서 왔는가?)
+        # Referer: 이전 페이지 URL(어떤 페이지를 거쳐서 `왔는가?)
         # 몇몇 사이트는 Referer 헤더 값을 보고 응답을 거부하기도 함
         # 따라서 Referer 값을 커스텀 해 주어야 한다.
         url_referer = 'http://comic.naver.com/webtoon/list.nhn?titledId={}'.format(self.webtoon_id)
